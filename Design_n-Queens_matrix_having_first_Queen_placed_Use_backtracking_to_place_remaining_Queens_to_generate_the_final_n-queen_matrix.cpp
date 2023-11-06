@@ -77,3 +77,7 @@ for(auto it : ans){
 }
  return 0;
 }
+
+
+// Time complexity : N!
+// Space Complexity : NxN

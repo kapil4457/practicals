@@ -29,3 +29,31 @@ int main() {
 
     return 0;
 }
+
+
+// Time Complexity : O(NxW)
+// Space Complexity : O(NxW)
+
+
+
+// Second Approach :
+   int f(int currW , int wt[] , int val[] , int n , vector<vector<int>>&dp){
+        if(n==0){
+            return wt[0] <= currW ? val[0] : 0;
+        }
+        if(currW < 0)return 0;
+        
+        if(dp[n][currW]!=-1)return dp[n][currW];
+        int take = 0;
+        int not_take = f(currW , wt , val ,n-1  ,dp);
+        if(currW >= wt[n]){
+            take = val[n] + f(currW-wt[n] , wt , val, n-1 ,dp);
+        }
+        return dp[n][currW] =  max(take , not_take);
+    }
+    int knapSack(int W, int wt[], int val[], int n) 
+    { 
+       // Your code here
+       vector<vector<int>>dp(1001 , vector<int>(1001, -1));
+       return f(W , wt , val  , n-1  , dp);
+    }

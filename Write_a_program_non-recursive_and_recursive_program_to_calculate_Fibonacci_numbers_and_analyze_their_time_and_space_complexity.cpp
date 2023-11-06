@@ -13,13 +13,13 @@ int recursive_fibonacci(int n) {
 void non_recursive_fibonacci(int n) {
     int first = 0;
     int second = 1;
-    cout << first << endl;
-    cout << second << endl;
+    cout << first << " ";
+    cout << second << " ";
     while (n - 2 > 0) {
         int third = first + second;
         first = second;
         second = third;
-        cout << third << endl;
+        cout << third << " ";
         n--;
     }
 }
@@ -27,10 +27,17 @@ void non_recursive_fibonacci(int n) {
 int main() {
     int n = 10;
     for (int i = 0; i < n; i++) {
-        cout << recursive_fibonacci(i) << endl;
+        cout << recursive_fibonacci(i) << " ";
+
     }
+
+    cout<<endl;
 
     non_recursive_fibonacci(n);
 
     return 0;
 }
+
+
+// Time Complexity : N
+// Space Complexity : O(N) recursive stack space
